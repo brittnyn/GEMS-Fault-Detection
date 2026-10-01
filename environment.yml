@@ -1,22 +1,20 @@
-# Default environment: uses a GPU build of PyTorch where one is available.
-# On NVIDIA machines conda-forge selects a CUDA build; on Apple Silicon it
-# selects the MPS (Metal) build; otherwise it falls back to CPU.
-# For a guaranteed CPU-only install instead, use environment-cpu.yml.
-name: gems-prize-reference-solution
+# GEMS environment for an AMD Radeon RX 7700 XT under WSL2 (Ubuntu 24.04).
+# conda-forge has no ROCm build of PyTorch, so torch comes from AMD's own
+# WSL wheels (ROCm 7.2, Python 3.12) via pip. See setup steps in the thread.
+name: GEMS-Fault-Detection
 channels:
   - conda-forge
 dependencies:
-  - python>=3.12
+  - python=3.12
   - jupyter
   - matplotlib
   - numpy
   - rasterio
   - scikit-image
-  - pytorch
-  - torchvision
-  # To force a specific CUDA version, uncomment and pick one:
-  # - cuda-version=12.6
-  # - cuda-version=13.0
   - pip
   - pip:
+      - https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2/torch-2.9.1%2Brocm7.2.0.lw.git7e1940d4-cp312-cp312-linux_x86_64.whl
+      - https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2/torchvision-0.24.0%2Brocm7.2.0.gitb919bd0c-cp312-cp312-linux_x86_64.whl
+      - https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2/triton-3.5.1%2Brocm7.2.0.gita272dfa8-cp312-cp312-linux_x86_64.whl
       - segmentation-models-pytorch
+ 
