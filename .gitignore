@@ -218,4 +218,4 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Data files
-/data/existing_faults.tif
+/data/*
