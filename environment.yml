@@ -1,7 +1,7 @@
 # GEMS environment for an AMD Radeon RX 7700 XT under WSL2 (Ubuntu 24.04).
 # conda-forge has no ROCm build of PyTorch, so torch comes from AMD's own
 # WSL wheels (ROCm 7.2, Python 3.12) via pip. See setup steps in the thread.
-name: GEMS-Fault-Detection
+name: gems-rocm
 channels:
   - conda-forge
 dependencies:
